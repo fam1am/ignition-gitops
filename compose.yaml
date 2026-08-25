@@ -9,8 +9,8 @@ services:
 
     volumes:
       - gitops-data:/usr/local/bin/ignition/data
-      - ./config/tag-definition/default:/usr/local/bin/ignition/data/config/resources/core/ignition/tag-definition/default
-      - ./config/tag-type-definition/default:/usr/local/bin/ignition/data/config/resources/core/ignition/tag-type-definition/default
+      - ./config/tag-definition:/usr/local/bin/ignition/data/config/resources/core/ignition/tag-definition/default
+      - ./config/tag-type-definition:/usr/local/bin/ignition/data/config/resources/core/ignition/tag-type-definition/default
 
 volumes:
   gitops-data:
