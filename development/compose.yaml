@@ -25,14 +25,14 @@ services:
       # Git-controlled TAGS
       #
       - type: bind
-        source: ../config/ignition/tag-definition/default
+        source: ./config/ignition/tag-definition/default
         target: /usr/local/bin/ignition/data/config/resources/core/ignition/tag-definition/default
 
       #
       # Git-controlled UDTs
       #
       - type: bind
-        source: ../config/ignition/tag-type-definition/default
+        source: ./config/ignition/tag-type-definition/default
         target: /usr/local/bin/ignition/data/config/resources/core/ignition/tag-type-definition/default
 
 volumes:
