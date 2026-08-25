@@ -1,16 +1,37 @@
 services:
+  seed:
+    image: busybox:1.37
+    restart: "no"
+    volumes:
+      - gitops-data:/data
+      - ./config:/config:ro
+    command:
+      - sh
+      - -c
+      - |
+        set -eu
+        UDT_DIR=/data/config/resources/external/ignition/tag-type-definition/default
+        TAG_DIR=/data/config/resources/external/ignition/tag-definition/default
+        mkdir -p "$$UDT_DIR" "$$TAG_DIR"
+        cp /config/tag-type-definition/udts.json "$$UDT_DIR/udts.json"
+        cp /config/tag-definition/tags.json "$$TAG_DIR/tags.json"
+        echo '{"scope":"G","version":1,"restricted":false,"overridable":true,"files":["udts.json"],"attributes":{"config":{}}}' > "$$UDT_DIR/unary-resource.json"
+        echo '{"scope":"G","version":1,"restricted":false,"overridable":true,"files":["tags.json"],"attributes":{"config":{}}}' > "$$TAG_DIR/unary-resource.json"
+        rm -f /data/config/resources/core/ignition/tag-type-definition/default/udts.json
+        rm -f /data/config/resources/core/ignition/tag-definition/default/tags.json
+        chown -R 2003:2003 /data/config/resources/external/ignition
+
   gateway:
     image: inductiveautomation/ignition:8.3.6
+    depends_on:
+      seed:
+        condition: service_completed_successfully
     ports:
       - "8088:8088"
-
     command: >
       -n docker-test
-
     volumes:
       - gitops-data:/usr/local/bin/ignition/data
-      - ./config/tag-definition/tags.json:/usr/local/bin/ignition/data/config/resources/core/ignition/tag-definition/default/tags.json
-      - ./config/tag-type-definition/udts.json:/usr/local/bin/ignition/data/config/resources/core/ignition/tag-type-definition/default/udts.json
 
 volumes:
   gitops-data:
