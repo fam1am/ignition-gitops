@@ -1,0 +1,12 @@
+services:
+  gateway:
+    image: inductiveautomation/ignition:8.3.6
+    ports:
+      - "8088:8088"
+    command: >
+      -n docker-test
+    volumes:
+      - gitops-data:/usr/local/bin/ignition/data
+
+volumes:
+  gitops-data:
