@@ -1,13 +1,40 @@
+name: ignition-dev
+
 services:
   gateway:
     image: inductiveautomation/ignition:8.3.6
+
+    restart: unless-stopped
+
+    environment:
+      ACCEPT_IGNITION_EULA: "Y"
+
+    command: >
+      -n dev
+
     ports:
       - "8088:8088"
-    command: >
-      -n docker-test
+
     volumes:
-      - ./config/ignition/tag-definition:/usr/local/bin/ignition/data/config/resources/external/ignition/tag-definition
-      - ./config/ignition/tag-type-definition:/usr/local/bin/ignition/data/config/resources/external/ignition/tag-type-definition
+      #
+      # Full Ignition runtime state
+      #
+      - ignition-data:/usr/local/bin/ignition/data
+
+      #
+      # Git-controlled TAGS
+      #
+      - type: bind
+        source: ../config/ignition/tag-definition/default
+        target: /usr/local/bin/ignition/data/config/resources/core/ignition/tag-definition/default
+
+      #
+      # Git-controlled UDTs
+      #
+      - type: bind
+        source: ../config/ignition/tag-type-definition/default
+        target: /usr/local/bin/ignition/data/config/resources/core/ignition/tag-type-definition/default
 
 volumes:
-  gitops-data:
+  ignition-data:
+    name: ignition-dev-data
