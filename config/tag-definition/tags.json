@@ -1,0 +1,7 @@
+[
+  {
+    "valueSource": "memory",
+    "name": "Memory Tag",
+    "tagType": "AtomicTag"
+  }
+]
