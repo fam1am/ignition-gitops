@@ -8,3 +8,6 @@ services:
     volumes:
       - ./config/ignition/tag-definition:/usr/local/bin/ignition/data/config/resources/external/ignition/tag-definition
       - ./config/ignition/tag-type-definition:/usr/local/bin/ignition/data/config/resources/external/ignition/tag-type-definition
+
+volumes:
+  gitops-data:
