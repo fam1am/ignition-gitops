@@ -6,6 +6,5 @@ services:
     command: >
       -n docker-test
     volumes:
-      # Mount the tag resources directly into the core configuration collection
-      - ./config/ignition/tag-definition:/usr/local/bin/ignition/data/config/resources/core/ignition/tag-definition
-      - ./config/ignition/tag-type-definition:/usr/local/bin/ignition/data/config/resources/core/ignition/tag-type-definition
+      - ./config/ignition/tag-definition:/usr/local/bin/ignition/data/config/resources/external/ignition/tag-definition
+      - ./config/ignition/tag-type-definition:/usr/local/bin/ignition/data/config/resources/external/ignition/tag-type-definition
