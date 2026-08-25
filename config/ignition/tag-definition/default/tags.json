@@ -1,7 +1,7 @@
 [
   {
     "valueSource": "memory",
-    "name": "Memory Tag",
+    "name": "Git Memory",
     "tagType": "AtomicTag"
   }
 ]
