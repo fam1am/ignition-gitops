@@ -53,4 +53,4 @@ Note: This guide assumes you are on a Linux machine and have Docker + Git instal
 * To pick up someone else's changes:
 
     git pull origin main
-    # no compose recreate needed; binds are live
+    // no compose recreate needed; binds are live
