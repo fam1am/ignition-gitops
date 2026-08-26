@@ -3,15 +3,5 @@
     "name": "Git-UDT",
     "typeId": null,
     "tagType": "UdtType"
-  },
-  {
-    "name": "Local-UDT",
-    "typeId": null,
-    "tagType": "UdtType"
-  },
-  {
-    "name": "Local 2",
-    "typeId": null,
-    "tagType": "UdtType"
   }
 ]
