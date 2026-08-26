@@ -21,15 +21,15 @@ Note: This guide assumes you are on a Linux machine and have Docker + Git instal
 3) First boot: volume only (init.yaml)
 
     docker compose -f development/init.yaml up -d
-    docker compose -f development/init.yaml ps
+    (optional) docker compose -f development/init.yaml ps
 
     Open http://<host>:8088 and finish commissioning if this is a fresh volume.
 
-4) Switch to live binds (compose.yaml)
+5) Switch to live binds (compose.yaml)
 
     docker compose -f development/init.yaml down     # keeps the volume; do not add -v
     docker compose -f development/compose.yaml up -d
-    docker compose -f development/compose.yaml ps
+    (optional) docker compose -f development/compose.yaml ps
 
     Same project name (ignition-dev), so this replaces gateway-init.
     Binds: ../config/... → git-controlled tags and UDTs.
