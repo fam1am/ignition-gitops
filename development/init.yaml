@@ -6,6 +6,8 @@ services:
 
     environment:
       ACCEPT_IGNITION_EULA: "Y"
+      IGNITION_UID: "${IGNITION_UID}"
+      IGNITION_GID: "${IGNITION_GID}"
 
     command: >
       -n dev
