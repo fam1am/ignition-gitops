@@ -14,7 +14,6 @@ Note: This guide assumes you are on a Linux machine and have Docker + Git instal
     export IGNITION_UID=$(id -u)
     export IGNITION_GID=$(id -g)
 
-    // persist for later shells (optional)
     echo "export IGNITION_UID=$(id -u)" >> ~/.bashrc
     echo "export IGNITION_GID=$(id -g)" >> ~/.bashrc
 
