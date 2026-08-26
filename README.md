@@ -17,6 +17,11 @@ Note: This guide assumes you are on a Linux machine and have Docker + Git instal
     echo "export IGNITION_UID=$(id -u)" >> ~/.bashrc
     echo "export IGNITION_GID=$(id -g)" >> ~/.bashrc
 
+    Compose starts the container as root (user: "0:0") so the entrypoint can
+    apply IGNITION_UID/GID and drop privileges. The image default is 2003:2003;
+    if you omit user: "0:0", those env vars are ignored and Designer cannot
+    write the bind-mounted ./config files.
+
 3) First boot: volume only (init.yaml)
 
     docker compose -f development/init.yaml up -d
