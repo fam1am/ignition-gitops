@@ -1,4 +1,4 @@
-# Fares Metwally | 8/26/2026 | Smart Tech Contracting
+# Fares Metwally | 8/26/2026
 
 Note: This guide assumes you are on a Linux machine and have Docker + Git installed
 
