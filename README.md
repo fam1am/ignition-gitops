@@ -28,7 +28,7 @@ Note: This guide assumes you are on a Linux machine and have Docker + Git instal
 
     docker compose -f development/init.yaml down     # keeps the volume; do not add -v
     docker compose -f development/compose.yaml up -d
-    (optional) docker compose -f development/compose.yaml ps
+    (diagnostic) docker ps
 
     Same project name (ignition-dev), so this replaces gateway-init.
     Binds: ../config/... → git-controlled tags and UDTs.
